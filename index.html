@@ -1,0 +1,232 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Rutas Centroamérica - Viajes y Tours</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{--accent:#0ea5a4;--accent-dark:#0b7280;--bg:#f7fafc;--card:#ffffff;--muted:#6b7280}
+  body{font-family:Inter,system-ui,Arial,Helvetica,sans-serif;margin:0;background:var(--bg);color:#0f172a}
+  .container{max-width:1100px;margin:24px auto;padding:16px}
+  header{display:flex;align-items:center;justify-content:space-between;gap:12px}
+  .brand{display:flex;align-items:center;gap:12px}
+  .logo{width:56px;height:56px;border-radius:10px;background:linear-gradient(135deg,var(--accent),#06b6d4);display:flex;align-items:center;justify-content:center;color:white;font-weight:700}
+  h1{margin:0;font-size:1.4rem}
+  nav a{margin-left:12px;color:var(--accent-dark);text-decoration:none;font-weight:600}
+  .hero{display:grid;grid-template-columns:1fr 360px;gap:20px;margin-top:18px}
+  .card{background:var(--card);padding:18px;border-radius:12px;box-shadow:0 6px 18px rgba(2,6,23,0.06)}
+  .search{display:flex;gap:8px;margin-top:12px}
+  input, select{padding:10px;border-radius:8px;border:1px solid #e6eef2;flex:1}
+  button.btn{background:var(--accent);color:white;border:0;padding:10px 12px;border-radius:8px;cursor:pointer;font-weight:600}
+  .gallery{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-top:18px}
+  .place{position:relative;border-radius:10px;overflow:hidden}
+  .place img{width:100%;height:180px;object-fit:cover;display:block}
+  .place .meta{position:absolute;left:10px;bottom:10px;color:white;text-shadow:0 2px 8px rgba(0,0,0,0.6);font-weight:700;background:rgba(0,0,0,0.25);padding:6px 8px;border-radius:6px}
+  .info-grid{display:grid;grid-template-columns:1fr 320px;gap:16px;margin-top:16px}
+  table{width:100%;border-collapse:collapse}
+  th,td{padding:8px;border-bottom:1px solid #eef2f6;text-align:left}
+  .contact{margin-top:12px}
+  footer{margin-top:18px;text-align:center;color:var(--muted);font-size:.9rem;padding:12px}
+  @media (max-width:900px){
+    .hero{grid-template-columns:1fr}
+    .gallery{grid-template-columns:repeat(2,1fr)}
+    .info-grid{grid-template-columns:1fr}
+  }
+  @media (max-width:520px){
+    .gallery{grid-template-columns:1fr}
+  }
+</style>
+</head>
+<body>
+  <div class="container">
+    <header>
+      <div class="brand">
+        <div class="logo">RC</div>
+        <div>
+          <h1>Rutas Centroamérica</h1>
+          <div style="color:var(--muted);font-size:.95rem">Viajes | Tours | Transporte</div>
+        </div>
+      </div>
+      <nav>
+        <a href="#destinos">Destinos</a>
+        <a href="#tarifas">Tarifas</a>
+        <a href="#contacto">Contacto</a>
+      </nav>
+    </header>
+
+    <div class="hero">
+      <div class="card">
+        <h2>Explora Centroamérica</h2>
+        <p style="color:var(--muted)">Descubre rutas destacadas por Guatemala, Belice, Honduras, El Salvador, Nicaragua, Costa Rica y Panamá. Encuentra viajes en autobús, avión, o tours privados.</p>
+
+        <div class="search">
+          <input id="from" placeholder="Origen (ej: Tegucigalpa)">
+          <select id="mode">
+            <option value="bus">Autobús</option>
+            <option value="flight">Vuelo</option>
+            <option value="private">Tour privado</option>
+          </select>
+          <button class="btn" onclick="buscar()">Buscar</button>
+        </div>
+
+        <div style="margin-top:12px;color:var(--muted)">
+          <strong>Recomendado:</strong> Reservas con 48 horas de anticipación para mejores tarifas.
+        </div>
+
+        <section id="destinos" style="margin-top:16px">
+          <h3>Mire el catálogo de viajes haciendo click en el pais</h3>
+
+          <!doctype html><html lang="es"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Rutas Centroamérica - Destinos por país</title><link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet"><style>:root{--accent:#0ea5a4;--bg:#f7fafc;--muted:#6b7280}body{font-family:Inter,system-ui,Arial;margin:0;background:var(--bg);color:#0f172a}.container{max-width:1100px;margin:20px auto;padding:16px}header{display:flex;align-items:center;justify-content:space-between}.logo{display:flex;align-items:center;gap:12px}.logo div{width:56px;height:56px;border-radius:10px;background:linear-gradient(135deg,var(--accent),#06b6d4);display:flex;align-items:center;justify-content:center;color:white;font-weight:700}h1{margin:0;font-size:1.4rem}.country-list{display:grid;grid-template-columns:repeat(auto-fit,minmax(160px,1fr));gap:12px;margin-top:18px}.country-btn{display:flex;align-items:center;gap:8px;padding:10px;border-radius:10px;background:white;cursor:pointer;border:1px solid #e6eef2;box-shadow:0 4px 10px rgba(2,6,23,0.04)}.country-btn img{width:36px;height:24px;object-fit:cover;border-radius:3px}.accordion{margin-top:18px}.panel{background:white;border-radius:10px;padding:12px;margin-bottom:12px;box-shadow:0 6px 18px rgba(2,6,23,0.06);display:none}.panel.active{display:block}.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:12px;margin-top:12px}.card{background:#fff;border-radius:10px;overflow:hidden;box-shadow:0 6px 18px rgba(2,6,23,0.06);transition:transform .16s}.card img{width:100%;height:140px;object-fit:cover;display:block}.card .body{padding:10px}.card h4{margin:0 0 6px;font-size:15px}.card p{margin:0;color:var(--muted);font-size:13px}.table{margin-top:12px;border-collapse:collapse;width:100%}.table th,.table td{padding:8px;border-bottom:1px solid #eef2f6;text-align:left}@media (max-width:600px){.card img{height:120px} .country-list{grid-template-columns:repeat(2,1fr)}}</style></head><body><div class="container"><div class="country-list">
+<div class="country-btn" data-country="Guatemala"><img src="https://st2.depositphotos.com/6489488/9384/v/450/depositphotos_93842822-stock-illustration-guatemala-flag-in-official-colors.jpg" alt="Guatemala flag"></div><div class="country-btn" data-country="Belice"><img src="https://st2.depositphotos.com/6489488/9372/v/450/depositphotos_93723342-stock-illustration-belize-flag-geometric-polygonal-shapes.jpg" alt="Belice flag"></div><div class="country-btn" data-country="Honduras"><img src="https://img.freepik.com/vecteurs-premium/drapeau-national-du-honduras-banner-symbole-etat-mat-du-drapeau_661108-22535.jpg" alt="Honduras flag"></div><div class="country-btn" data-country="El Salvador"><img src="https://res.cloudinary.com/teepublic/image/private/s--HhJ469LC--/t_Preview/b_rgb:ffffff,c_limit,f_auto,h_630,q_90,w_630/v1549550902/production/designs/4159273_0.jpg" alt="El Salvador flag"></div><div class="country-btn" data-country="Nicaragua"><img src="https://abcteach-content-s3-blob-storage.s3.us-east-2.amazonaws.com/abcteach-content-free/docs/free_preview/n/nicaraguaflagcolor_p.png" alt="Nicaragua flag"></div><div class="country-btn" data-country="Costa Rica"><img src="https://img.freepik.com/premium-vector/independence-day-costa-rica-background-with-flag_115560-1520.jpg" alt="Costa Rica flag"></div><div class="country-btn" data-country="Panamá"><img src="https://cdn.abcteach.com/abcteach-content-free/docs/free_preview/p/panamaflagcolor_p.png" alt="Panamá flag"></div></div><div class='accordion' id='accordion'><div class='panel' id='panel-Guatemala'><h2>Guatemala</h2><img src="https://unavidadeviajero.com/wp-content/uploads/2022/10/Guatemala-25-scaled.jpg" alt="Guatemala" style="width:100%;height:220px;object-fit:cover;border-radius:8px"><h3 style='margin-top:12px'>Lugares destacados</h3><div class='grid'><div class='card'><img src='https://th.bing.com/th/id/R.66a2714cfc86fceb73d9f2102a6af052?rik=tIzSDzbqDUXbTQ&riu=http%3a%2f%2f3.bp.blogspot.com%2f-khl4G2aeFyk%2fVEyIjYSefPI%2fAAAAAAAAELw%2fMnUbabSi6Dk%2fs1600%2fBZE%252B200%252BRB1%252B289.jpg&ehk=JtUTyb5zCcla6OXwnPHrvdRi2pb4P3bBL9AcYThJwk8%3d&risl=&pid=ImgRaw&r=0' alt='Tikal'><div class='body'><h4>Tikal</h4><p>Ruinas mayas en la selva.</p></div></div><div class='card'><img src='https://tse1.mm.bing.net/th/id/OIP.HKS8_Oa3-aAQyyKAwSmALwHaEK?r=0&rs=1&pid=ImgDetMain&o=7&rm=3' alt='Lago Atitlán'><div class='body'><h4>Lago Atitlán</h4><p>Lago rodeado de volcanes y pueblos.</p></div></div><div class='card'><img src='https://escales.ponant.com/wp-content/uploads/2021/02/Antigua-Guatemala-Header-compressor_img1000x645.jpg' alt='Antigua Guatemala'><div class='body'><h4>Antigua Guatemala</h4><p>Ciudad colonial con arquitectura barroca.</p></div></div><div class='card'><img src='https://www.airenomada.com/wp-content/uploads/2017/06/IMG_0478.jpg' alt='Semuc Champey'><div class='body'><h4>Semuc Champey</h4><p>Formaciones naturales y pozas turquesa.</p></div></div><div class='card'><img src='https://images.fineartamerica.com/images/artworkimages/mediumlarge/3/san-andres-xecul-totonicapan-guatemala-5-totto-ponce.jpg' alt='Chichicastenango'><div class='body'><h4>Chichicastenango</h4><p>Mercado indígena colorido.</p></div></div><div class='card'><img src='https://blog.corporacionbi.com/hubfs/Volcan-Pacaya.jpg#keepProtocol' alt='Volcán Pacaya'><div class='body'><h4>Volcán Pacaya</h4><p>Excursiones a volcanes activos.</p></div></div><div class='card'><img src='https://tse3.mm.bing.net/th/id/OIP.qJPap57t_S3zIXyj5bcOHgHaFj?r=0&rs=1&pid=ImgDetMain&o=7&rm=3' alt='Livingston'><div class='body'><h4>Livingston</h4><p>Cultura garífuna y playas caribeñas.</p></div></div><div class='card'><img src='https://cdn.kimkim.com/files/a/images/4442d84f5b465a6e8448779a5d908db0e33b332d/big-a00d0b89a85540163acf4cccdff2f256.jpg' alt='Quetzaltenango'><div class='body'><h4>Quetzaltenango</h4><p>Cultura y montañas.</p></div></div><div class='card'><img src='https://th.bing.com/th/id/R.cfcf214b5a9845241aa5003fc86c6e76?rik=0JAyeDCsq%2fWWmQ&riu=http%3a%2f%2fwww.yutmografim.com%2fwp-content%2fuploads%2fflores_01.jpg&ehk=GZHnl%2b3gJpd82gRnEO83UWzF34fbA43Dn2R2X6qBzPc%3d&risl=&pid=ImgRaw&r=0' alt='Flores (Petén)'><div class='body'><h4>Flores (Petén)</h4><p>Isla pintoresca en el lago Petén Itzá.</p></div></div><div class='card'><img src='https://th.bing.com/th/id/R.0c1fb7def87645521c7a5c900fe4c5b7?rik=uJyI%2f2YoqjcMdQ&pid=ImgRaw&r=0' alt='Monterrico'><div class='body'><h4>Monterrico</h4><p>Playas del Pacífico y tortugas marinas.</p></div></div></div><h3 style='margin-top:12px'>Tarifas orientativas</h3><table class='table'><thead><tr><th>Ruta</th><th>Autobús</th><th>Vuelo (econ.)</th><th>Tour Privado</th></tr></thead><tbody><tr><td>Flores (Petén) ↔ Monterrico</td><td>$30</td><td>$61</td><td>$280</td></tr><tr><td>Volcán Pacaya ↔ Quetzaltenango</td><td>$6</td><td>$133</td><td>$172</td></tr><tr><td>Chichicastenango ↔ Flores (Petén)</td><td>$14</td><td>$65</td><td>$251</td></tr><tr><td>Tikal ↔ Chichicastenango</td><td>$14</td><td>$112</td><td>$83</td></tr><tr><td>Monterrico ↔ Tikal</td><td>$14</td><td>$57</td><td>$157</td></tr></tbody></table><div style='margin-top:10px;color:var(--muted)'><strong>Agente Guatemala:</strong> +682 2501-6873</div></div><div class='panel' id='panel-Belice'><h2>Belice</h2><img src="https://th.bing.com/th/id/R.1cce3c8cd493ca6ae6dbbefe49843810?rik=KrzoIUiGZfxRdg&pid=ImgRaw&r=0" alt="Belice" style="width:100%;height:220px;object-fit:cover;border-radius:8px"><h3 style='margin-top:12px'>Lugares destacados</h3><div class='grid'><div class='card'><img src='https://th.bing.com/th/id/R.7b0b1ee7560f702559668057c7442522?rik=RYgMg8KruWWpVA&riu=http%3a%2f%2f3.bp.blogspot.com%2f-kxekozl35wI%2fT3M_0W3Ya4I%2fAAAAAAAAIbY%2fvFPFsQBeqs0%2fs1600%2fBlue-Hole-National-Park-1.jpg&ehk=fDf4odDn4lUSblnnuXaIhiCeg5c7N059S318mZZpBSQ%3d&risl=&pid=ImgRaw&r=0' alt='Great Blue Hole'><div class='body'><h4>Great Blue Hole</h4><p>Formación marina para buceo.</p></div></div><div class='card'><img src='https://www.atlasandboots.com/wp-content/uploads/2023/01/Diving-the-Hol-Chan-Marine-Reserve-in-Belize-Lead-Image-1024x682.jpg' alt='Hol Chan'><div class='body'><h4>Hol Chan</h4><p>Reserva marina y snorkeling.</p></div></div><div class='card'><img src='https://tse4.mm.bing.net/th/id/OIP.1gWHg7EgPoD_rFAVJPm9xgHaE8?r=0&rs=1&pid=ImgDetMain&o=7&rm=3' alt='Caye Ambergris (San Pedro)'><div class='body'><h4>Caye Ambergris (San Pedro)</h4><p>Isla turística con playas.</p></div></div><div class='card'><img src='https://likewhereyouregoing.com/wp-content/uploads/2020/05/king-leweys-placencia-1024x682.jpg' alt='Placencia'><div class='body'><h4>Placencia</h4><p>Playas tranquilas y pesca.</p></div></div><div class='card'><img src='https://th.bing.com/th/id/R.d7e57499e1cb6a76c48486672aa579a6?rik=mwdd8X0BZQk4Hg&pid=ImgRaw&r=0' alt='Altun Ha'><div class='body'><h4>Altun Ha</h4><p>Sitio arqueológico maya.</p></div></div><div class='card'><img src='https://th.bing.com/th/id/R.0f518027fb8ea1963e876e6cb3adc44a?rik=FGFPq2ci0dSKLg&riu=http%3a%2f%2fwww.elgranmestizo.bz%2fwp-content%2fuploads%2f2016%2f11%2flamanai-aerial-belize-tour.jpg&ehk=MKygOgvvXdflQ2Lb0SBAw58Vm779iFZKqOUFlCsz0ks%3d&risl=&pid=ImgRaw&r=0' alt='Lamanai'><div class='body'><h4>Lamanai</h4><p>Templos mayas en la selva.</p></div></div><div class='card'><img src='https://tse2.mm.bing.net/th/id/OIP.dQ6obvbnSZHx8lnbXyXUpAHaEK?r=0&rs=1&pid=ImgDetMain&o=7&rm=3' alt='Belmopan'><div class='body'><h4>Belmopan</h4><p>Capital y parques.</p></div></div><div class='card'><img src='https://tse2.mm.bing.net/th/id/OIP.wJnDE-84iuLCYG9l3lhZ7AHaFj?r=0&rs=1&pid=ImgDetMain&o=7&rm=3' alt='Caye Caulker'><div class='body'><h4>Caye Caulker</h4><p>Isla relajada con snorkel.</p></div></div><div class='card'><img src='https://tse2.mm.bing.net/th/id/OIP.VjTcNMF4fZcTjTiag67dQQHaE8?r=0&rs=1&pid=ImgDetMain&o=7&rm=3' alt='Caracol'><div class='body'><h4>Caracol</h4><p>Ciudad maya en la selva.</p></div></div><div class='card'><img src='https://yourfriendthenomad.com/wp-content/uploads/2024/05/Rio-On-Pools-Belize-Mountain-Pine-Ridge-1-1024x731.jpg' alt='Rio on Pools'><div class='body'><h4>Rio on Pools</h4><p>Piscinas naturales.</p></div></div></div><h3 style='margin-top:12px'>Tarifas orientativas</h3><table class='table'><thead><tr><th>Ruta</th><th>Autobús</th><th>Vuelo (econ.)</th><th>Tour Privado</th></tr></thead><tbody><tr><td>Caye Caulker ↔ Rio on Pools</td><td>$19</td><td>$74</td><td>$289</td></tr><tr><td>Altun Ha ↔ Belmopan</td><td>$18</td><td>$96</td><td>$232</td></tr><tr><td>Placencia ↔ Rio on Pools</td><td>$5</td><td>$45</td><td>$263</td></tr><tr><td>Placencia ↔ Hol Chan</td><td>$18</td><td>$118</td><td>$102</td></tr><tr><td>Caye Caulker ↔ Placencia</td><td>$18</td><td>$125</td><td>$252</td></tr></tbody></table><div style='margin-top:10px;color:var(--muted)'><strong>Agente Belice:</strong> +916 7209-9536</div></div><div class='panel' id='panel-Honduras'><h2>Honduras</h2><img src="https://nearshoreamericas.com/wp-content/uploads/2021/10/hector-emilio-gonzalez-WFFmZ0qIUYU-unsplash-scaled.jpeg" alt="Honduras" style="width:100%;height:220px;object-fit:cover;border-radius:8px"><h3 style='margin-top:12px'>Lugares destacados</h3><div class='grid'><div class='card'><img src='https://tse4.mm.bing.net/th/id/OIP.5e-lcWCeCIlSaHbhVP9BGwHaFj?r=0&rs=1&pid=ImgDetMain&o=7&rm=3' alt='Copán'><div class='body'><h4>Copán</h4><p>Ruinas mayas de gran importancia.</p></div></div><div class='card'><img src='https://i.pinimg.com/originals/a7/5b/2c/a75b2ced91968ccf8d9c81bd7543dd29.jpg' alt='Roatán'><div class='body'><h4>Roatán</h4><p>Isla con excelente buceo.</p></div></div><div class='card'><img src='https://www.honduras.com/wp-content/uploads/2020/08/cayos-cochini-1.jpg' alt='Utila'><div class='body'><h4>Utila</h4><p>Isla popular para buceo.</p></div></div><div class='card'><img src='https://th.bing.com/th/id/R.26fb8bb220fe1cd53bc051e50e3d41f6?rik=gj9f1%2fyas0oSNw&pid=ImgRaw&r=0' alt='La Ceiba'><div class='body'><h4>La Ceiba</h4><p>Festivales y acceso a selva.</p></div></div><div class='card'><img src='https://www.honduras.com/wp-content/uploads/2020/07/pico-fundacion-parque-nacional-pico-bonito.jpg' alt='Pico Bonito'><div class='body'><h4>Pico Bonito</h4><p>Parque nacional para senderismo.</p></div></div><div class='card'><img src='https://3.bp.blogspot.com/-mHW4E-z_360/ThnMyauJUkI/AAAAAAAAABI/Lz_d1GxDGWw/s1600/25_8783.jpg' alt='Tela'><div class='body'><h4>Tela</h4><p>Playas y reservas naturales.</p></div></div><div class='card'><img src='https://th.bing.com/th/id/R.9ff8663ff05a9c59a22b5722a0910425?rik=eW8Q%2fvq%2btdVo9w&pid=ImgRaw&r=0' alt='Gracias'><div class='body'><h4>Gracias</h4><p>Ciudad colonial en Lempira.</p></div></div><div class='card'><img src='https://th.bing.com/th/id/R.3456596109f5483ea138c6ae02904639?rik=q7%2bg17nw0YvJUg&riu=http%3a%2f%2f1.bp.blogspot.com%2f-yLVA08xxpac%2fTqGgdSBEJnI%2fAAAAAAAAAnY%2fXEVUv_BQoro%2fs1600%2f312058_10150334848327217_49260437216_8443918_2120006859_n.jpeg&ehk=SPDAzBHVaaZBYzZ%2fgTnrZSz8xzi7CRR%2foNgkb17w20w%3d&risl=&pid=ImgRaw&r=0' alt='Utila Cays'><div class='body'><h4>Utila Cays</h4><p>Pequeñas islas y playas.</p></div></div><div class='card'><img src='https://th.bing.com/th/id/R.abe8e54d0e765ffe3e3d5112711402ce?rik=uVhUT4WqWq7HEg&pid=ImgRaw&r=0' alt='Cayos Cochinos'><div class='body'><h4>Cayos Cochinos</h4><p>Arrecifes y naturaleza.</p></div></div><div class='card'><img src='https://upload.wikimedia.org/wikipedia/commons/7/76/Tegucigalpa_view.jpg' alt='Tegucigalpa - Mirador'><div class='body'><h4>Tegucigalpa - Mirador</h4><p>Vistas de la capital.</p></div></div></div><h3 style='margin-top:12px'>Tarifas orientativas</h3><table class='table'><thead><tr><th>Ruta</th><th>Autobús</th><th>Vuelo (econ.)</th><th>Tour Privado</th></tr></thead><tbody><tr><td>Cayos Cochinos ↔ Utila</td><td>$4</td><td>$67</td><td>$120</td></tr><tr><td>La Ceiba ↔ Copán</td><td>$20</td><td>$76</td><td>$280</td></tr><tr><td>Gracias ↔ Utila</td><td>$11</td><td>$58</td><td>$105</td></tr><tr><td>La Ceiba ↔ Utila</td><td>$24</td><td>$137</td><td>$234</td></tr><tr><td>Roatán ↔ Utila Cays</td><td>$22</td><td>$91</td><td>$179</td></tr></tbody></table><div style='margin-top:10px;color:var(--muted)'><strong>Agente Honduras:</strong> +567 9330-7543</div></div><div class='panel' id='panel-El Salvador'><h2>El Salvador</h2><img src="https://tse4.mm.bing.net/th/id/OIP.93_4RQc9BXBPuvCp5_V1VgHaE7?r=0&rs=1&pid=ImgDetMain&o=7&rm=3" alt="El Salvador" style="width:100%;height:220px;object-fit:cover;border-radius:8px"><h3 style='margin-top:12px'>Lugares destacados</h3><div class='grid'><div class='card'><img src='https://costaricateenamora.com/wp-content/uploads/2015/03/Ruta-de-las-Flores-El-Salvador-979x605.webp' alt='Ruta de las Flores'><div class='body'><h4>Ruta de las Flores</h4><p>Pueblos pintorescos y café.</p></div></div><div class='card'><img src='https://www.ambiente.gob.sv/wp-content/uploads/2025/04/89175dbf-07b6-473f-a19c-80d7ac598a90-scaled.jpg' alt='Volcán Santa Ana'><div class='body'><h4>Volcán Santa Ana</h4><p>Senderismo y vistas.</p></div></div><div class='card'><img src='https://tse3.mm.bing.net/th/id/OIP.skfvtLItixcFJGeyZrcaxAHaFj?r=0&rs=1&pid=ImgDetMain&o=7&rm=3' alt='El Tunco'><div class='body'><h4>El Tunco</h4><p>Surf y vida nocturna.</p></div></div><div class='card'><img src='https://ehplustv.com/wp-content/uploads/2024/06/Suchitoto-El-Salvador.jpg' alt='Suchitoto'><div class='body'><h4>Suchitoto</h4><p>Ciudad colonial y cultura.</p></div></div><div class='card'><img src='https://tse2.mm.bing.net/th/id/OIP.6uXzXttkXzDN6BiWZpx5mwHaFI?r=0&rs=1&pid=ImgDetMain&o=7&rm=3' alt='El Imposible'><div class='body'><h4>El Imposible</h4><p>Parque nacional con biodiversidad.</p></div></div><div class='card'><img src='https://th.bing.com/th/id/R.d0dde2270b5120674522c2b34fa0063b?rik=8zGmTIJ%2bmZBSrg&pid=ImgRaw&r=0' alt='Coatepeque'><div class='body'><h4>Coatepeque</h4><p>Lago de cráter panorámico.</p></div></div><div class='card'><img src='https://www.tresorsdumonde.fr/wp-content/uploads/2016/04/Joya-de-Ceren1.jpg' alt='Joya de Cerén'><div class='body'><h4>Joya de Cerén</h4><p>Sitio arqueológico precolombino.</p></div></div><div class='card'><img src='https://th.bing.com/th/id/R.a26e63c6c2311b9765e866e1b41a3765?rik=Jjg3bvsYjjX8ig&pid=ImgRaw&r=0' alt='La Libertad'><div class='body'><h4>La Libertad</h4><p>Puerto y gastronomía de mar.</p></div></div><div class='card'><img src='https://tse3.mm.bing.net/th/id/OIP.aD--aJnTu-lX6Qfiddq73QHaF-?r=0&rs=1&pid=ImgDetMain&o=7&rm=3' alt='Cerro Verde'><div class='body'><h4>Cerro Verde</h4><p>Miradores y senderos.</p></div></div><div class='card'><img src='https://tse4.mm.bing.net/th/id/OIP.3xMarwoDJ10d9TQVY2TNnwHaE_?r=0&rs=1&pid=ImgDetMain&o=7&rm=3' alt='San Salvador - Centro Histórico'><div class='body'><h4>San Salvador - Centro Histórico</h4><p>Iglesias y museos.</p></div></div></div><h3 style='margin-top:12px'>Tarifas orientativas</h3><table class='table'><thead><tr><th>Ruta</th><th>Autobús</th><th>Vuelo (econ.)</th><th>Tour Privado</th></tr></thead><tbody><tr><td>Ruta de las Flores ↔ Joya de Cerén</td><td>$6</td><td>$60</td><td>$252</td></tr><tr><td>El Imposible ↔ Joya de Cerén</td><td>$21</td><td>$143</td><td>$237</td></tr><tr><td>Suchitoto ↔ La Libertad</td><td>$8</td><td>$96</td><td>$93</td></tr><tr><td>Volcán Santa Ana ↔ El Tunco</td><td>$8</td><td>$47</td><td>$259</td></tr><tr><td>Ruta de las Flores ↔ Volcán Santa Ana</td><td>$10</td><td>$80</td><td>$225</td></tr></tbody></table><div style='margin-top:10px;color:var(--muted)'><strong>Agente El Salvador:</strong> +628 5406-1949</div></div><div class='panel' id='panel-Nicaragua'><h2>Nicaragua</h2><img src="https://tse4.mm.bing.net/th/id/OIP.kCD2Zg-dtUbxg6oWpXDwewHaEx?r=0&rs=1&pid=ImgDetMain&o=7&rm=3" alt="Nicaragua" style="width:100%;height:220px;object-fit:cover;border-radius:8px"><h3 style='margin-top:12px'>Lugares destacados</h3><div class='grid'><div class='card'><img src='https://travelrebels.com/wp-content/uploads/2023/06/isla-ometepe-in-nicaragua.jpg' alt='Isla de Ometepe'><div class='body'><h4>Isla de Ometepe</h4><p>Isla con dos volcanes en el lago.</p></div></div><div class='card'><img src='https://tse3.mm.bing.net/th/id/OIP.fuWzaHCpLGkrVPBs7Ga0uQHaEn?r=0&rs=1&pid=ImgDetMain&o=7&rm=3' alt='Granada'><div class='body'><h4>Granada</h4><p>Ciudad colonial junto al lago.</p></div></div><div class='card'><img src='https://th.bing.com/th/id/R.22a21f771d7939d990bda9f90e74877d?rik=spUGJglGIJN%2fFQ&pid=ImgRaw&r=0' alt='Corn Islands'><div class='body'><h4>Corn Islands</h4><p>Playas caribeñas e snorkel.</p></div></div><div class='card'><img src='https://tse3.mm.bing.net/th/id/OIP.b087jNATi1dVo21KASrD_AHaE7?r=0&rs=1&pid=ImgDetMain&o=7&rm=3' alt='Volcán Masaya'><div class='body'><h4>Volcán Masaya</h4><p>Cráter accesible y actividad.</p></div></div><div class='card'><img src='https://th.bing.com/th/id/R.032aa97aa2963554da24c8a44e34682c?rik=x%2bBXAV4k%2bKm0yQ&pid=ImgRaw&r=0' alt='León'><div class='body'><h4>León</h4><p>Ciudad colonial y volcanes.</p></div></div><div class='card'><img src='https://tse1.mm.bing.net/th/id/OIP.9B3uDXmmeNISTgosNUXsYAHaFj?r=0&rs=1&pid=ImgDetMain&o=7&rm=3' alt='San Juan del Sur'><div class='body'><h4>San Juan del Sur</h4><p>Surf y vida playera.</p></div></div><div class='card'><img src='https://tse2.mm.bing.net/th/id/OIP.UxrJwFqwY-T-E8tZUed-rgHaEo?r=0&rs=1&pid=ImgDetMain&o=7&rm=3' alt='Isla Zapatera'><div class='body'><h4>Isla Zapatera</h4><p>Arqueología y naturaleza.</p></div></div><div class='card'><img src='https://tse4.mm.bing.net/th/id/OIP.D3xPsWdPGQmt0JPn1EEdtQHaFj?r=0&rs=1&pid=ImgDetMain&o=7&rm=3' alt='Reserva Indio Maíz'><div class='body'><h4>Reserva Indio Maíz</h4><p>Selva tropical y fauna.</p></div></div><div class='card'><img src='https://th.bing.com/th/id/R.1127d95944e4cffdf227b518ec9953ba?rik=7YDoD3pnEQvU9A&pid=ImgRaw&r=0' alt='Mombacho'><div class='body'><h4>Mombacho</h4><p>Volcán y reservas naturales.</p></div></div><div class='card'><img src='https://th.bing.com/th/id/R.a8fe7f2aa2d4e725c468df737a91370f?rik=mz4ujZ2jcXkIaA&pid=ImgRaw&r=0' alt='Laguna de Apoyo'><div class='body'><h4>Laguna de Apoyo</h4><p>Laguna de cráter y playas.</p></div></div></div><h3 style='margin-top:12px'>Tarifas orientativas</h3><table class='table'><thead><tr><th>Ruta</th><th>Autobús</th><th>Vuelo (econ.)</th><th>Tour Privado</th></tr></thead><tbody><tr><td>Volcán Masaya ↔ Isla Zapatera</td><td>$9</td><td>$114</td><td>$225</td></tr><tr><td>Laguna de Apoyo ↔ Reserva Indio Maíz</td><td>$15</td><td>$81</td><td>$113</td></tr><tr><td>San Juan del Sur ↔ Mombacho</td><td>$30</td><td>$50</td><td>$139</td></tr><tr><td>Mombacho ↔ Reserva Indio Maíz</td><td>$25</td><td>$128</td><td>$197</td></tr><tr><td>Granada ↔ San Juan del Sur</td><td>$22</td><td>$106</td><td>$234</td></tr></tbody></table><div style='margin-top:10px;color:var(--muted)'><strong>Agente Nicaragua:</strong> +868 3832-9672</div></div><div class='panel' id='panel-Costa Rica'><h2>Costa Rica</h2><img src="https://www.travelandleisure.com/thmb/BxU66B1oP4M7xx_ujNzw4kehf48=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/TAL-header-arenal-volcano-national-park-COSTARICA0623-3790dbb697024f3b8ac2c7cec7044685.jpg" alt="Costa Rica" style="width:100%;height:220px;object-fit:cover;border-radius:8px"><h3 style='margin-top:12px'>Lugares destacados</h3><div class='grid'><div class='card'><img src='https://landedtravel.com/wp-content/uploads/2020/02/Monteverde-Costa-Rica-Landed-Travel-Private-Travel.jpg' alt='Monteverde'><div class='body'><h4>Monteverde</h4><p>Bosque nuboso y puentes colgantes.</p></div></div><div class='card'><img src='https://tse4.mm.bing.net/th/id/OIP.gBW206nxlDvCDAsv7T44bgHaE8?r=0&rs=1&pid=ImgDetMain&o=7&rm=3' alt='Arenal'><div class='body'><h4>Arenal</h4><p>Volcán y aguas termales.</p></div></div><div class='card'><img src='https://tse2.mm.bing.net/th/id/OIP.8IOH3v-ApKEuzX7lDN660QHaEK?r=0&rs=1&pid=ImgDetMain&o=7&rm=3' alt='Manuel Antonio'><div class='body'><h4>Manuel Antonio</h4><p>Playas y vida silvestre.</p></div></div><div class='card'><img src='https://i.pinimg.com/originals/c2/2b/60/c22b60f633163e1079f75cd0ba2ada2b.jpg' alt='Tortuguero'><div class='body'><h4>Tortuguero</h4><p>Canales y anidación de tortugas.</p></div></div><div class='card'><img src='https://www.lavanguardia.com/files/og_thumbnail/uploads/2020/03/25/5fa90766a7b5e.jpeg' alt='Corcovado'><div class='body'><h4>Corcovado</h4><p>Biodiversidad en Osa.</p></div></div><div class='card'><img src='https://s3.amazonaws.com/cdn.matadornetwork.com/blogs/1/2019/01/Beach-at-Puerto-Viejo-in-Costa-Rica-1200x854.jpg' alt='Puerto Viejo'><div class='body'><h4>Puerto Viejo</h4><p>Cultura caribeña y playas.</p></div></div><div class='card'><img src='https://tse2.mm.bing.net/th/id/OIP.ugGoXolfzzuBcoNzeQrrYQHaD4?r=0&rs=1&pid=ImgDetMain&o=7&rm=3' alt='Rincón de la Vieja'><div class='body'><h4>Rincón de la Vieja</h4><p>Aventura y termas.</p></div></div><div class='card'><img src='https://th.bing.com/th/id/R.1fd9428353ee81b75719ed09c0f7ee5c?rik=U3SGsp1F5l5k4A&pid=ImgRaw&r=0' alt='Cahuita'><div class='body'><h4>Cahuita</h4><p>Arrecifes y playas en Caribe.</p></div></div><div class='card'><img src='https://th.bing.com/th/id/R.a11c23529f7f006078263d52b16cb4b9?rik=%2bq3BC8ax0%2fMxoA&pid=ImgRaw&r=0' alt='Tamarindo'><div class='body'><h4>Tamarindo</h4><p>Surf y turismo de playa.</p></div></div><div class='card'><img src='https://tse3.mm.bing.net/th/id/OIP.66IzC2Tsw3-qJBjxYnmAkQHaE8?r=0&rs=1&pid=ImgDetMain&o=7&rm=3' alt='Montezuma'><div class='body'><h4>Montezuma</h4><p>Cascadas y naturaleza en Nicoya.</p></div></div></div><h3 style='margin-top:12px'>Tarifas orientativas</h3><table class='table'><thead><tr><th>Ruta</th><th>Autobús</th><th>Vuelo (econ.)</th><th>Tour Privado</th></tr></thead><tbody><tr><td>Monteverde ↔ Manuel Antonio</td><td>$21</td><td>$104</td><td>$253</td></tr><tr><td>Tamarindo ↔ Arenal</td><td>$14</td><td>$83</td><td>$119</td></tr><tr><td>Cahuita ↔ Puerto Viejo</td><td>$16</td><td>$130</td><td>$106</td></tr><tr><td>Cahuita ↔ Arenal</td><td>$11</td><td>$139</td><td>$287</td></tr><tr><td>Rincón de la Vieja ↔ Tortuguero</td><td>$8</td><td>$45</td><td>$82</td></tr></tbody></table><div style='margin-top:10px;color:var(--muted)'><strong>Agente Costa Rica:</strong> +990 3925-4300</div></div><div class='panel' id='panel-Panamá'><h2>Panamá</h2><img src="https://tse4.mm.bing.net/th/id/OIP.OgG36U_6PcecOXNN3onUHwHaEK?r=0&rs=1&pid=ImgDetMain&o=7&rm=3" alt="Panamá" style="width:100%;height:220px;object-fit:cover;border-radius:8px"><h3 style='margin-top:12px'>Lugares destacados</h3><div class='grid'><div class='card'><img src='https://tse4.mm.bing.net/th/id/OIP.mtrs28oMVI6qEeXpl8VrFQHaEL?r=0&rs=1&pid=ImgDetMain&o=7&rm=3' alt='Canal de Panamá'><div class='body'><h4>Canal de Panamá</h4><p>Ingeniería y miradores.</p></div></div><div class='card'><img src='https://th.bing.com/th/id/R.eb99bae03cdc5012e878812607a0ae90?rik=Q%2feGthGgf8pvoQ&pid=ImgRaw&r=0' alt='Casco Viejo'><div class='body'><h4>Casco Viejo</h4><p>Barrio histórico y gastronomía.</p></div></div><div class='card'><img src='https://tse2.mm.bing.net/th/id/OIP.xqJ59mk3NLtKWbNvTYyNHQHaE6?r=0&rs=1&pid=ImgDetMain&o=7&rm=3' alt='Bocas del Toro'><div class='body'><h4>Bocas del Toro</h4><p>Archipiélago caribeño.</p></div></div><div class='card'><img src='https://th.bing.com/th/id/R.45e4f7d0c4b89a1f1771b3b936f5532c?rik=La8ankj%2f3c49fA&pid=ImgRaw&r=0' alt='San Blas'><div class='body'><h4>San Blas</h4><p>Islas Guna Yala, playas vírgenes.</p></div></div><div class='card'><img src='https://tse2.mm.bing.net/th/id/OIP.5SH7V7OJhP4z_S4Mglkw6wHaFj?r=0&rs=1&pid=ImgDetMain&o=7&rm=3' alt='Coiba'><div class='body'><h4>Coiba</h4><p>Parque nacional y buceo.</p></div></div><div class='card'><img src='https://www.civitatis.com/f/panama/ciudad-de-panama/galeria/valle-anton.jpg' alt='Valle de Antón'><div class='body'><h4>Valle de Antón</h4><p>Pueblo en cráter volcánico.</p></div></div><div class='card'><img src='https://tse1.mm.bing.net/th/id/OIP.fiCUYoackiYgTpF1QW2KlQHaEV?r=0&rs=1&pid=ImgDetMain&o=7&rm=3' alt='Red Frog Beach'><div class='body'><h4>Red Frog Beach</h4><p>Playa en Bocas del Toro.</p></div></div><div class='card'><img src='https://media.admagazine.com/photos/618a603aaf428eae6e0b585f/master/w_1600%2Cc_limit/86879.jpeg' alt='Pearl Islands'><div class='body'><h4>Pearl Islands</h4><p>Archipiélago con playas.</p></div></div><div class='card'><img src='https://tse1.mm.bing.net/th/id/OIP.SRtAWMxvX3-Q9Bg38sILiAHaE6?r=0&rs=1&pid=ImgDetMain&o=7&rm=3v' alt='Bastimentos'><div class='body'><h4>Bastimentos</h4><p>Isla con arrecifes y selva.</p></div></div><div class='card'><img src='https://www.anywhere.com/img-a/destination/portobello-panama/portobello-4.jpg' alt='Portobelo'><div class='body'><h4>Portobelo</h4><p>Historia colonial y fortificaciones.</p></div></div></div><h3 style='margin-top:12px'>Tarifas orientativas</h3><table class='table'><thead><tr><th>Ruta</th><th>Autobús</th><th>Vuelo (econ.)</th><th>Tour Privado</th></tr></thead><tbody><tr><td>Portobelo ↔ Red Frog Beach</td><td>$14</td><td>$134</td><td>$136</td></tr><tr><td>Casco Viejo ↔ Coiba</td><td>$22</td><td>$123</td><td>$183</td></tr><tr><td>Bastimentos ↔ Valle de Antón</td><td>$19</td><td>$142</td><td>$274</td></tr><tr><td>Bastimentos ↔ Canal de Panamá</td><td>$24</td><td>$40</td><td>$217</td></tr><tr><td>Pearl Islands ↔ Coiba</td><td>$13</td><td>$92</td><td>$81</td></tr></tbody></table><div style='margin-top:10px;color:var(--muted)'><strong>Agente Panamá:</strong> +929 5497-3760</div></div></div>
+<script>
+document.querySelectorAll('.country-btn').forEach(btn => {
+  btn.addEventListener('click', () => {
+    const country = btn.getAttribute('data-country');
+    document.querySelectorAll('.panel').forEach(p => p.classList.remove('active'));
+    const target = document.getElementById('panel-' + country);
+    if(target) {
+      target.classList.add('active');
+      setTimeout(() => target.scrollIntoView({behavior:'smooth', block:'start'}), 80);
+    }
+  });
+});
+</script>
+</body></html>
+<h3>Destinos destacados</h3>
+            <div class="place card">
+              <img src="https://www.caminorealantigua.com.gt/wp-content/uploads/2024/03/guatemala-7699582_1920.jpg" alt="Antigua Guatemala">
+              <div class="meta">Antigua, Guatemala</div>
+            </div>
+            <div class="place card">
+              <img src="https://tse3.mm.bing.net/th/id/OIP.1JAX3wi7wa8CI1un2TJYQAHaEk?r=0&rs=1&pid=ImgDetMain&o=7&rm=3
+              " alt="Belize">
+              <div class="meta">Belice - Cayo Caulker</div>
+            </div>
+            <div class="place card">
+              <img src="https://tse1.mm.bing.net/th/id/OIP.72GFV_YRDmBLAErloQCCOAHaFj?r=0&rs=1&pid=ImgDetMain&o=7&rm=3" alt="Copan Honduras">
+              <div class="meta">Copán, Honduras</div>
+            </div>
+            <div class="place card">
+              <img src="https://tse1.mm.bing.net/th/id/OIP.GAgoDBjoQCd8Bl-_pZC2OQHaEH?r=0&rs=1&pid=ImgDetMain&o=7&rm=3" alt="El Salvador">
+              <div class="meta">El Salvador - Ruta del Sol</div>
+            </div>
+            <div class="place card">
+              <img src="https://wanderlusters.com/wp-content/uploads/2013/05/colonial-granada-featured-e1393222077850.jpg" alt="Granada Nicaragua">
+              <div class="meta">Granada, Nicaragua</div>
+            </div>
+            <div class="place card">
+              <img src="https://th.bing.com/th/id/R.365325435d834ddb35881838071c56b8?rik=2CB56tYpaX1p5g&pid=ImgRaw&r=0" alt="Costa Rica">
+              <div class="meta">Costa Rica - Monteverde</div>
+            </div>
+          </div>
+        </section>
+      </div>
+
+      <div class="card">
+        <h3>Reservas rápidas</h3>
+        <p style="color:var(--muted)">Contacta a nuestros agentes para reservar o pedir cotizaciones.</p>
+        <div class="contact">
+          <div><strong>Tel (Central):</strong> +506 8888-5555</div>
+          <div><strong>Tel (Soporte):</strong> +502 7777-4444</div>
+          <div><strong>Email:</strong> reservas@rutabryanm.example</div>
+        </div>
+
+        <h4 style="margin-top:12px">Modalidades</h4>
+        <ul style="color:var(--muted)">
+          <li>Autobús interurbano y regional</li>
+          <li>Vuelos domésticos y regionales</li>
+          <li>Tours privados y paquetes a medida</li>
+        </ul>
+
+        <h4 style="margin-top:12px">Horarios</h4>
+        <div style="color:var(--muted)">Operamos todos los días: 05:00 - 20:00.</div>
+
+        <div style="margin-top:12px">
+          <button class="btn" onclick="window.location.href='mailto:reservas@rutasca.example?subject=Solicitud%20de%20Reserva'">Enviar solicitud</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="info-grid">
+      <div class="card">
+        <h3 id="tarifas">Tarifas orientativas de lugares destacados</h3>
+        <p style="color:var(--muted)">Precios estimados por persona (moneda local / USD aproximado).</p>
+        <table>
+          <thead><tr><th>Ruta</th><th>Autobús</th><th>Vuelo (econ.)</th><th>Tour Privado</th></tr></thead>
+          <tbody>
+            <tr><td>Guatemala City ↔ Antigua</td><td>$32</td><td>$55</td><td>$120</td></tr>
+            <tr><td>Tegucigalpa ↔ San Pedro Sula</td><td>$18</td><td>$75</td><td>$150</td></tr>
+            <tr><td>Managua ↔ Granada</td><td>$22</td><td>$60</td><td>$110</td></tr>
+            <tr><td>San José ↔ Monteverde</td><td>$17</td><td>$65</td><td>$140</td></tr>
+            <tr><td>Panamá City ↔ Bocas del Toro</td><td>$18</td><td>$95</td><td>$220</td></tr>
+          </tbody>
+        </table>
+
+        <h4 style="margin-top:12px">Formas de pago</h4>
+        <ul style="color:var(--muted)">
+          <li>Transferencia bancaria</li>
+          <li>Pago con tarjeta (procesador seguro)</li>
+          <li>Pago en efectivo al recoger boleto</li>
+        </ul>
+      </div>
+
+      <div class="card">
+        <h3>Agentes por país</h3>
+        <div style="margin-top:8px;color:var(--muted)">
+          <strong>Guatemala:</strong> +502 3333-2222<br>
+          <strong>Belice:</strong> +501 2222-1111<br>
+          <strong>Honduras:</strong> +504 6666-3333<br>
+          <strong>El Salvador:</strong> +503 5555-2222<br>
+          <strong>Nicaragua:</strong> +505 4444-1111<br>
+          <strong>Costa Rica:</strong> +506 8888-5555<br>
+          <strong>Panamá:</strong> +507 7777-3333
+        </div>
+
+        <h4 style="margin-top:12px">Servicios complementarios</h4>
+        <ul style="color:var(--muted)">
+          <li>Traslados aeropuerto - hotel</li>
+          <li>Guías locales y paquetes culturales</li>
+          <li>Seguros de viaje (opcional)</li>
+        </ul>
+      </div>
+    </div>
+
+   <section class="card" id="contacto" style="margin-top:16px">
+  <h3>¿Tienes dudas? Contáctanos</h3>
+  <p style="color:var(--muted)">Rellena el formulario y te responderemos pronto.</p>
+
+  <form action="https://formsubmit.co/brayanjsj3@gmail.com" method="POST">
+    <input type="text" name="nombre" placeholder="Tu nombre" style="width:100%;padding:10px;border-radius:8px;border:1px solid #e6eef2f;margin-top:8px" required>
+    <input type="tel" name="telefono" placeholder="Teléfono" style="width:100%;padding:10px;border-radius:8px;border:1px solid #e6eef2f;margin-top:8px" required>
+    <textarea name="mensaje" placeholder="Mensaje" style="width:100%;padding:10px;border-radius:8px;border:1px solid #e6eef2f;margin-top:8px" rows="4" required></textarea>
+    
+    <!-- Opciones ocultas -->
+    <input type="hidden" name="_captcha" value="false"> 
+    <input type="hidden" name="_next" value="http://127.0.0.1:5500/index.html"> 
+
+    <div style="margin-top:8px"><button class="btn" type="submit">Enviar</button></div>
+  </form>
+
+  <div style="color:var(--muted);margin-top:8px">O llama al +504 9741-6662</div>
+</section>
+
+    <footer>
+      © 2025 Rutas Centroamérica · Diseñado por Bryan Mendoza · Maestra: Ruth Reyes
+                      
+    </footer>
+  </div>
+
+<script>
+function buscar(){
+  const from = document.getElementById('from').value || 'tu ciudad';
+  const mode = document.getElementById('mode').value;
+  alert('Buscando opciones desde ' + from + ' en modo: ' + mode + '. (Demo)');
+}
+function demoSubmit(e){
+  e.preventDefault();
+  alert('Gracias ' + document.getElementById('nombre').value + '. Tu mensaje ha sido recibido (demo).');
+}
+</script>
+</body>
+</html>
